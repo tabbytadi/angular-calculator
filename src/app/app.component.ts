@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CalculatorComponent } from './components/calculator/calculator.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [CalculatorComponent],
+  template: `<app-calculator></app-calculator>`,
+  styles: [`
+    :host {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f0f0;
+    }
+  `]
 })
-export class AppComponent {
-  title = 'calculator-app';
-}
+export class AppComponent { }

@@ -1,0 +1,78 @@
+$button-size: 70px;
+$gap: 4px;
+$operator-color: #ff9500;
+$function-color: #a5a5a5;
+
+.calculator {
+  width: ($button-size * 4) + ($gap * 3);
+  background: #000;
+  padding: 16px;
+  border-radius: 16px;
+
+  .display {
+    color: white;
+    font-size: 72px;
+    text-align: right;
+    padding: 20px;
+    min-height: 140px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    transition: font-size 0.2s ease;
+
+    &.shrink-font {
+      font-size: 52px;
+    }
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $gap;
+
+    button {
+      height: $button-size;
+      border: none;
+      border-radius: 50%;
+      font-size: 28px;
+      cursor: pointer;
+      transition: filter 0.2s;
+
+      &:active {
+        filter: brightness(130%);
+      }
+
+      // Number buttons
+      background: #333;
+      color: white;
+
+      // Function buttons (AC, ±, %)
+      &:nth-child(-n+3) {
+        background: $function-color;
+        color: black;
+      }
+
+      // Operator buttons
+      &[data-operator] {
+        background: $operator-color;
+        color: white;
+      }
+
+      &.zero {
+        grid-column: span 2;
+        width: auto;
+        border-radius: 35px;
+        justify-content: flex-start;
+        padding-left: 30px;
+      }
+
+      &.equals {
+        background: $operator-color;
+        color: white;
+      }
+    }
+  }
+}
