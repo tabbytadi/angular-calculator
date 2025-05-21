@@ -1,24 +1,27 @@
 <div class="calculator">
-  <div class="display" [class.shrink-font]="shouldShrinkFont()">{{ calculator.display }}</div>
-
-
+  <div class="display" [ngClass]="{
+      'shrink-font-once': fontShrinkLevel === 'once',
+      'shrink-font-twice': fontShrinkLevel === 'twice'
+    }">
+    {{ calculator.display }}
+  </div>
   <div class="buttons">
     <button (click)="calculator.handleInput('AC')">AC</button>
     <button (click)="calculator.handleInput('±')">±</button>
     <button (click)="calculator.handleInput('%')">%</button>
-    <button (click)="calculator.handleInput('÷')">÷</button>
+    <button data-operator (click)="calculator.handleInput('÷')">÷</button>
 
     <button *ngFor="let num of [7,8,9]" (click)="calculator.handleInput(num.toString())">{{ num }}</button>
-    <button (click)="calculator.handleInput('×')">×</button>
+    <button data-operator (click)="calculator.handleInput('×')">×</button>
 
     <button *ngFor="let num of [4,5,6]" (click)="calculator.handleInput(num.toString())">{{ num }}</button>
-    <button (click)="calculator.handleInput('-')">-</button>
+    <button data-operator (click)="calculator.handleInput('-')">-</button>
 
     <button *ngFor="let num of [1,2,3]" (click)="calculator.handleInput(num.toString())">{{ num }}</button>
-    <button (click)="calculator.handleInput('+')">+</button>
+    <button data-operator (click)="calculator.handleInput('+')">+</button>
 
     <button class="zero" (click)="calculator.handleInput('0')">0</button>
     <button (click)="calculator.handleInput('.')">.</button>
-    <button class="equals" (click)="calculator.handleInput('=')">=</button>
+    <button data-operator class="equals" (click)="calculator.handleInput('=')">=</button>
   </div>
 </div>

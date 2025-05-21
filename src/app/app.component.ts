@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
-import { CalculatorComponent } from './components/calculator/calculator.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CalculatorComponent],
-  template: `<app-calculator></app-calculator>`,
+  imports: [RouterOutlet],
+  template: `<router-outlet></router-outlet>`,
   styles: [`
     :host {
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: #f0f0f0;
     }
   `]
 })

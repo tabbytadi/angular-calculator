@@ -23,8 +23,12 @@ $function-color: #a5a5a5;
     text-overflow: clip;
     transition: font-size 0.2s ease;
 
-    &.shrink-font {
+    &.shrink-font-once {
       font-size: 52px;
+    }
+
+    &.shrink-font-twice {
+      font-size: 34px;
     }
   }
 
@@ -45,33 +49,22 @@ $function-color: #a5a5a5;
         filter: brightness(130%);
       }
 
-      // Number buttons
       background: #333;
       color: white;
 
-      // Function buttons (AC, ±, %)
       &:nth-child(-n+3) {
         background: $function-color;
         color: black;
       }
 
-      // Operator buttons
       &[data-operator] {
         background: $operator-color;
-        color: white;
       }
 
       &.zero {
         grid-column: span 2;
         width: auto;
         border-radius: 35px;
-        justify-content: flex-start;
-        padding-left: 30px;
-      }
-
-      &.equals {
-        background: $operator-color;
-        color: white;
       }
     }
   }

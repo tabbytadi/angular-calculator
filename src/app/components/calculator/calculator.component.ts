@@ -12,7 +12,10 @@ import { CalculatorService } from '../../services/calculator.service';
 export class CalculatorComponent {
   constructor(public calculator: CalculatorService) { }
 
-  shouldShrinkFont(): boolean {
-    return this.calculator.display.length > 6;
+  get fontShrinkLevel(): '' | 'once' | 'twice' {
+    const len = this.calculator.display.length;
+    if (len > 12) return 'twice';
+    if (len > 8) return 'once';
+    return '';
   }
 }
